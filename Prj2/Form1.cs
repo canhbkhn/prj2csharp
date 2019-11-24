@@ -77,7 +77,7 @@ namespace Prj2
         {
             foreach(JObject o in array)
             {
-                if (o[LocationName].ToString() == "Hanoi")
+                if ("Hanoi" == LocationName && o["Name"].ToString() == "Hanoi")
                 {
                     string tenTp = "Hà nội";
                     this.lbTpName.Text = tenTp;
@@ -89,8 +89,87 @@ namespace Prj2
                     this.lbRealTemp6pm.Text = o["Nhietdo"][18].ToString();
                     this.lbRealTemp7pm.Text = o["Nhietdo"][19].ToString();
                     this.lbDoam.Text = o["Doam"].ToString();
+                    this.lbApsuatkk.Text = o["Apsuatkhongkhi"].ToString();
                     this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
+
+                    break;
+                }
+
+                if("Hochiminh" == LocationName)
+                {
+                    string tenTp = "Hồ Chí Minh";
+                    this.lbTpName.Text = tenTp;
+                    this.lbNhiet.Text = o["Nhietdo"][15].ToString();
+                    this.lbRealTemp3pm.Text = o["Nhietdo"][15].ToString();
+                    this.lbRealTempFeel.Text = (Convert.ToInt32(o["Nhietdo"][15].ToString().Substring(0, 2)) + 2).ToString() + "°C";
+                    this.lbRealTemp4pm.Text = o["Nhietdo"][16].ToString();
+                    this.lbRealTemp5pm.Text = o["Nhietdo"][17].ToString();
+                    this.lbRealTemp6pm.Text = o["Nhietdo"][18].ToString();
+                    this.lbRealTemp7pm.Text = o["Nhietdo"][19].ToString();
+                    this.lbDoam.Text = o["Doam"].ToString();
+                    this.lbApsuatkk.Text = o["Apsuatkhongkhi"].ToString();
+                    this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
+                    this.lbTocdogio.Text = o["Tocdogio"].ToString();
+
+                    break;
+                }
+
+                if("Seoul" == LocationName && o["Name"].ToString() == "Seoul")
+                {
+                    string tenTp = "Seoul";
+                    this.lbTpName.Text = tenTp;
+                    this.lbNhiet.Text = o["Nhietdo"][15].ToString();
+                    this.lbRealTemp3pm.Text = o["Nhietdo"][15].ToString();
+                    this.lbRealTempFeel.Text = (Convert.ToInt32(o["Nhietdo"][15].ToString().Substring(0, 2)) + 2).ToString() + "°C";
+                    this.lbRealTemp4pm.Text = o["Nhietdo"][16].ToString();
+                    this.lbRealTemp5pm.Text = o["Nhietdo"][17].ToString();
+                    this.lbRealTemp6pm.Text = o["Nhietdo"][18].ToString();
+                    this.lbRealTemp7pm.Text = o["Nhietdo"][19].ToString();
+                    this.lbDoam.Text = o["Doam"].ToString();
+                    this.lbApsuatkk.Text = o["Apsuatkhongkhi"].ToString();
+                    this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
+                    this.lbTocdogio.Text = o["Tocdogio"].ToString();
+
+                    break;
+                }
+
+                if("Tokyo" == LocationName)
+                {
+                    string tenTp = "Tokyo";
+                    this.lbTpName.Text = tenTp;
+                    this.lbNhiet.Text = o["Nhietdo"][15].ToString();
+                    this.lbRealTemp3pm.Text = o["Nhietdo"][15].ToString();
+                    this.lbRealTempFeel.Text = (Convert.ToInt32(o["Nhietdo"][15].ToString().Substring(0, 2)) + 2).ToString() + "°C";
+                    this.lbRealTemp4pm.Text = o["Nhietdo"][16].ToString();
+                    this.lbRealTemp5pm.Text = o["Nhietdo"][17].ToString();
+                    this.lbRealTemp6pm.Text = o["Nhietdo"][18].ToString();
+                    this.lbRealTemp7pm.Text = o["Nhietdo"][19].ToString();
+                    this.lbDoam.Text = o["Doam"].ToString();
+                    this.lbApsuatkk.Text = o["Apsuatkhongkhi"].ToString();
+                    this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
+                    this.lbTocdogio.Text = o["Tocdogio"].ToString();
+
+                    break;
+                }
+
+                if ("Singapore" == LocationName)
+                {
+                    string tenTp = "Singapore";
+                    this.lbTpName.Text = tenTp;
+                    this.lbNhiet.Text = o["Nhietdo"][15].ToString();
+                    this.lbRealTemp3pm.Text = o["Nhietdo"][15].ToString();
+                    this.lbRealTempFeel.Text = (Convert.ToInt32(o["Nhietdo"][15].ToString().Substring(0, 2)) + 2).ToString() + "°C";
+                    this.lbRealTemp4pm.Text = o["Nhietdo"][16].ToString();
+                    this.lbRealTemp5pm.Text = o["Nhietdo"][17].ToString();
+                    this.lbRealTemp6pm.Text = o["Nhietdo"][18].ToString();
+                    this.lbRealTemp7pm.Text = o["Nhietdo"][19].ToString();
+                    this.lbDoam.Text = o["Doam"].ToString();
+                    this.lbApsuatkk.Text = o["Apsuatkhongkhi"].ToString();
+                    this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
+                    this.lbTocdogio.Text = o["Tocdogio"].ToString();
+
+                    break;
                 }
             }
            
@@ -101,7 +180,7 @@ namespace Prj2
 
             ReadAllData("../../../data.json");
 
-            Initial(jarray, "Name");
+            Initial(jarray, "Seoul");
 
             // test
             Console.WriteLine("get jarray -> " + jarray);
