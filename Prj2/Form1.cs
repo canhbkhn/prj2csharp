@@ -117,6 +117,7 @@ namespace Prj2
         }
 
         // TODO: implement searching and reload form when get search result
+        // TODO: implement load image weather: sunny, rain,...
         // searching
         void searching(string searchingCity)
         {
@@ -126,7 +127,7 @@ namespace Prj2
         // reload form
         void reload()
         {
-            searching(tbTimkiem.Text.ToString());
+            //searching(tbTimkiem.Text.ToString());
 
             //ReadAllData("../../../data.json");
 
@@ -303,9 +304,27 @@ namespace Prj2
         private void btnTimkiem_Click(object sender, EventArgs e)
         {
             // reload if have any seaching
-            if(GetSearchingCity() != "")
+            // 
+            searching(tbTimkiem.Text.ToString());
+            string searchingCity = GetSearchingCity();
+            // debug
+            Console.WriteLine("search input: " + searchingCity);
+            int count = 0;
+        
+            for(int i = 0; i < jarray.Count; i++)
             {
-                reload();
+                if(searchingCity == jarray[i]["Name"].ToString())
+                {
+                    count++;
+                    reload();
+                    break;
+                }
+            }
+
+            if (count == 0)
+            {
+                MessageBox.Show("Can not found, please check again");
+                return;
             }
         }
     }

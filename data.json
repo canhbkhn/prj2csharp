@@ -28,7 +28,7 @@
 			 "17°C"  
 		  ],
 		  "Doam": "65%",
-		  "Apsuatkhongkhi": "",
+		  "Apsuatkhongkhi": "1000.01 PS",
 		  "Tocdogio": "1.4 km/h",
 		  "Cohoicomua": "0%",
 		  "Nhietdocaonhat": "32°C",
@@ -63,7 +63,7 @@
 			 "17°C"  
 		  ],
 		  "Doam": "85%",
-		  "Apsuatkhongkhi": "",
+		  "Apsuatkhongkhi": "900 PS",
 		  "Tocdogio": "2.0 km/h",
 		  "Cohoicomua": "80%",
 		  "Nhietdocaonhat": "36°C",
@@ -99,7 +99,7 @@
 			 "17°C"  
 		  ],
 		  "Doam": "35%",
-		  "Apsuatkhongkhi": "",
+		  "Apsuatkhongkhi": "1005.32 PS",
 		  "Tocdogio":"1.5 km/h",
 		  "Cohoicomua": "30%",
 		  "Nhietdocaonhat": "32°C",
@@ -135,7 +135,7 @@
 			 "12°C"  
 		  ],
 		  "Doam": "25%",
-		  "Apsuatkhongkhi": "",
+		  "Apsuatkhongkhi": "1000 PS",
 		  "Tocdogio":"1.7 km/h",
 		  "Cohoicomua": "45%",
 		  "Nhietdocaonhat": "32°C",
@@ -171,7 +171,7 @@
 			 "17°C"  
 		  ],
 		  "Doam": "75%",
-		  "Apsuatkhongkhi": "",
+		  "Apsuatkhongkhi": "990.99 PS",
 		  "Tocdogio":"1.85 km/h",
 		  "Cohoicomua": "45%",
 		  "Nhietdocaonhat": "32°C",
