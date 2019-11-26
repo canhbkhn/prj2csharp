@@ -10,3 +10,4 @@ C:\Users\CanhVV\source\repos\Prj2\Prj2\obj\Debug\Prj2.pdb
 C:\Users\CanhVV\source\repos\Prj2\Prj2\bin\Debug\Newtonsoft.Json.dll
 C:\Users\CanhVV\source\repos\Prj2\Prj2\bin\Debug\Newtonsoft.Json.xml
 C:\Users\CanhVV\source\repos\Prj2\Prj2\obj\Debug\Prj2.csproj.CopyComplete
+C:\Users\CanhVV\source\repos\Prj2\Prj2\obj\Debug\Prj2.csprojAssemblyReference.cache

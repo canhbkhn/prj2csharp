@@ -18,6 +18,8 @@ namespace Prj2
         // common variable to save data load from file
         public static JArray jarray;
 
+        private List<string> localTemp;
+
         // temperature
         private string maxTemp;
         private string minTemp;
@@ -31,6 +33,49 @@ namespace Prj2
 
         // windspeed
         private string windSpeed;
+
+        // init city
+        private string initCity;
+
+        // searching city
+        private string searchingCity;
+
+        // set init city 
+        public void SetInitCity(string _initCity)
+        {
+            initCity = _initCity;
+        }
+
+        public string GetInitCity()
+        {
+            return initCity;
+        }
+
+        // set searching city
+        public void SetSearchingCity(string _searchingCity)
+        {
+            searchingCity = _searchingCity;
+        }
+
+        // get searching city
+        string GetSearchingCity()
+        {
+            return searchingCity;
+        }
+
+        // set local temp
+        void SetLocalTemperature(string _localTemp)
+        {
+            localTemp = new List<string>();
+            localTemp.Add(_localTemp);
+        }
+
+        // get list local temp
+        List<string> GetLocalTemp()
+        {
+            return localTemp;
+        }
+        
 
         // method
         // get maximum temperature
@@ -70,6 +115,56 @@ namespace Prj2
 
             jarray = array;
         }
+
+        // TODO: implement searching and reload form when get search result
+        // searching
+        void searching(string searchingCity)
+        {
+            SetSearchingCity(searchingCity);
+        }
+
+        // reload form
+        void reload()
+        {
+            searching(tbTimkiem.Text.ToString());
+
+            //ReadAllData("../../../data.json");
+
+            //InitializeComponent();
+
+            Console.WriteLine(GetSearchingCity());
+
+            Initial(jarray, GetSearchingCity());
+
+            //InitializeComponent();
+        }
+
+       
+
+        // get list temperature in json file
+        public List<string> getTempList(/*string jsonPath*/)
+        {
+            List<string> listTempData = new List<string>();
+
+            string initCity = GetInitCity();
+
+            for(int i = 0; i < jarray.Count; i++)
+            {
+                if(jarray[i]["Name"].ToString() == initCity)
+                {
+                    // for debug
+                    Console.WriteLine("init city->" + initCity);
+                    Console.WriteLine(jarray[i]["Nhietdo"].Count());
+
+                    for (int j = 0; j < jarray[i]["Nhietdo"].Count(); j++)
+                    {
+                        listTempData.Add(jarray[i]["Nhietdo"][j].ToString());
+                    }
+                }
+            }
+
+            return listTempData;
+        }
         /// <summary>
         /// default loading
         /// </summary>
@@ -93,10 +188,12 @@ namespace Prj2
                     this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
 
+                    SetInitCity(LocationName);
+
                     break;
                 }
 
-                if("Hochiminh" == LocationName)
+                if("Hochiminh" == LocationName && o["Name"].ToString() == "Hochiminh")
                 {
                     string tenTp = "Hồ Chí Minh";
                     this.lbTpName.Text = tenTp;
@@ -111,6 +208,8 @@ namespace Prj2
                     this.lbApsuatkk.Text = o["Apsuatkhongkhi"].ToString();
                     this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
+
+                    SetInitCity(LocationName);
 
                     break;
                 }
@@ -131,10 +230,12 @@ namespace Prj2
                     this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
 
+                    SetInitCity(LocationName);
+
                     break;
                 }
 
-                if("Tokyo" == LocationName)
+                if("Tokyo" == LocationName && o["Name"].ToString() == "Tokyo")
                 {
                     string tenTp = "Tokyo";
                     this.lbTpName.Text = tenTp;
@@ -150,10 +251,12 @@ namespace Prj2
                     this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
 
+                    SetInitCity(LocationName);
+
                     break;
                 }
 
-                if ("Singapore" == LocationName)
+                if ("Singapore" == LocationName && o["Name"].ToString() == "Singapore")
                 {
                     string tenTp = "Singapore";
                     this.lbTpName.Text = tenTp;
@@ -169,6 +272,8 @@ namespace Prj2
                     this.lbCohoicomua.Text = o["Cohoicomua"].ToString();
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
 
+                    SetInitCity(LocationName);
+
                     break;
                 }
             }
@@ -176,19 +281,32 @@ namespace Prj2
         }
         public MainForm()
         {
-            InitializeComponent();
-
             ReadAllData("../../../data.json");
 
-            Initial(jarray, "Seoul");
+            InitializeComponent();
 
-            // test
-            Console.WriteLine("get jarray -> " + jarray);
+            Initial(jarray, "Hanoi"); 
 
-            //
-            string test = getMaxTemp(jarray, "Hanoi");
+        }
 
-            Console.WriteLine("Hanoi->"+test);
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            List<string> local_temp = new List<string>();
+            local_temp = getTempList();
+
+            for(int i = 0; i < 24; i++)
+            {
+                TemperatureChart.Series["Temperature"].Points.AddXY(i.ToString() + "Hr", Convert.ToInt32(local_temp[i].Replace("°C", "")).ToString());
+            }
+        }
+
+        private void btnTimkiem_Click(object sender, EventArgs e)
+        {
+            // reload if have any seaching
+            if(GetSearchingCity() != "")
+            {
+                reload();
+            }
         }
     }
 }

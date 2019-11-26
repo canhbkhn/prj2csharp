@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.picBoxWeather = new System.Windows.Forms.PictureBox();
             this.lbTenTp = new System.Windows.Forms.Label();
@@ -46,7 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.Temperature = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.TemperatureChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tbTimkiem = new System.Windows.Forms.TextBox();
             this.btnTimkiem = new System.Windows.Forms.Button();
@@ -69,7 +70,7 @@
             this.lbRealTemp6pm = new System.Windows.Forms.Label();
             this.lbRealTemp7pm = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxWeather)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Temperature)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TemperatureChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -214,21 +215,24 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "7PM";
             // 
-            // Temperature
+            // TemperatureChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.Temperature.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.Temperature.Legends.Add(legend3);
-            this.Temperature.Location = new System.Drawing.Point(278, 48);
-            this.Temperature.Name = "Temperature";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Temperature";
-            this.Temperature.Series.Add(series3);
-            this.Temperature.Size = new System.Drawing.Size(687, 394);
-            this.Temperature.TabIndex = 0;
-            this.Temperature.Text = "temp";
+            chartArea2.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend2);
+            this.TemperatureChart.Location = new System.Drawing.Point(278, 48);
+            this.TemperatureChart.Name = "TemperatureChart";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Temperature";
+            this.TemperatureChart.Series.Add(series2);
+            this.TemperatureChart.Size = new System.Drawing.Size(687, 394);
+            this.TemperatureChart.TabIndex = 0;
+            this.TemperatureChart.Text = "temp";
+            title2.Name = "Title1";
+            title2.Text = "Temperatures Chart";
+            this.TemperatureChart.Titles.Add(title2);
             // 
             // pictureBox1
             // 
@@ -260,6 +264,7 @@
             this.btnTimkiem.TabIndex = 17;
             this.btnTimkiem.Text = "Tìm kiếm";
             this.btnTimkiem.UseVisualStyleBackColor = true;
+            this.btnTimkiem.Click += new System.EventHandler(this.btnTimkiem_Click);
             // 
             // pictureBox2
             // 
@@ -484,12 +489,13 @@
             this.Controls.Add(this.lbTpName);
             this.Controls.Add(this.lbTenTp);
             this.Controls.Add(this.picBoxWeather);
-            this.Controls.Add(this.Temperature);
+            this.Controls.Add(this.TemperatureChart);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Weather mini app";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxWeather)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Temperature)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.TemperatureChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -515,7 +521,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataVisualization.Charting.Chart Temperature;
+        private System.Windows.Forms.DataVisualization.Charting.Chart TemperatureChart;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox tbTimkiem;
         private System.Windows.Forms.Button btnTimkiem;
