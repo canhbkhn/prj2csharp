@@ -1,4 +1,5 @@
 [
+
 	{
 			"Name": "Hanoi",
 			"Nhietdo": [
@@ -30,7 +31,7 @@
 		  "Doam": "65%",
 		  "Apsuatkhongkhi": "1000.01 PS",
 		  "Tocdogio": "1.4 km/h",
-		  "Cohoicomua": "0%",
+		  "Cohoicomua": "7%",
 		  "Nhietdocaonhat": "32°C",
 		  "Nhietdothapnhat": "16°C"
    },

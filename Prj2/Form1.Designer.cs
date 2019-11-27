@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.picBoxWeather = new System.Windows.Forms.PictureBox();
             this.lbTenTp = new System.Windows.Forms.Label();
@@ -83,6 +83,7 @@
             this.picBoxWeather.Location = new System.Drawing.Point(23, 22);
             this.picBoxWeather.Name = "picBoxWeather";
             this.picBoxWeather.Size = new System.Drawing.Size(96, 61);
+            this.picBoxWeather.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picBoxWeather.TabIndex = 1;
             this.picBoxWeather.TabStop = false;
             // 
@@ -217,22 +218,22 @@
             // 
             // TemperatureChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.TemperatureChart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.TemperatureChart.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend1);
             this.TemperatureChart.Location = new System.Drawing.Point(278, 48);
             this.TemperatureChart.Name = "TemperatureChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Temperature";
-            this.TemperatureChart.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Temperature";
+            this.TemperatureChart.Series.Add(series1);
             this.TemperatureChart.Size = new System.Drawing.Size(687, 394);
             this.TemperatureChart.TabIndex = 0;
             this.TemperatureChart.Text = "temp";
-            title2.Name = "Title1";
-            title2.Text = "Temperatures Chart";
-            this.TemperatureChart.Titles.Add(title2);
+            title1.Name = "Title1";
+            title1.Text = "Temperatures Chart";
+            this.TemperatureChart.Titles.Add(title1);
             // 
             // pictureBox1
             // 

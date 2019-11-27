@@ -10,3 +10,16 @@ C:\Users\CanhVV\source\repos\Prj2\Prj2\obj\Debug\Prj2.pdb
 C:\Users\CanhVV\source\repos\Prj2\Prj2\bin\Debug\Newtonsoft.Json.dll
 C:\Users\CanhVV\source\repos\Prj2\Prj2\bin\Debug\Newtonsoft.Json.xml
 C:\Users\CanhVV\source\repos\Prj2\Prj2\obj\Debug\Prj2.csproj.CopyComplete
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\bin\Debug\Prj2.exe.config
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\bin\Debug\Prj2.exe
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\bin\Debug\Prj2.pdb
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\bin\Debug\Newtonsoft.Json.dll
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\bin\Debug\Newtonsoft.Json.xml
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\obj\Debug\Prj2.csprojAssemblyReference.cache
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\obj\Debug\Prj2.MainForm.resources
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\obj\Debug\Prj2.Properties.Resources.resources
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\obj\Debug\Prj2.csproj.GenerateResource.cache
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\obj\Debug\Prj2.csproj.CoreCompileInputs.cache
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\obj\Debug\Prj2.csproj.CopyComplete
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\obj\Debug\Prj2.exe
+C:\Users\CanhVV\Desktop\dev\prj2csharp\Prj2\obj\Debug\Prj2.pdb

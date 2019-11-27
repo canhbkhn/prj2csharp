@@ -29,7 +29,7 @@ namespace Prj2
         private string humidity;
 
         // chance of rain
-        private string chanceOfRain;
+        private int chanceOfRain;
 
         // windspeed
         private string windSpeed;
@@ -118,6 +118,12 @@ namespace Prj2
 
         // TODO: implement searching and reload form when get search result
         // TODO: implement load image weather: sunny, rain,...
+
+        public void LoadImage(string path)
+        {
+            Image image = Image.FromFile(path);
+            this.picBoxWeather.Image = image;
+        }
         // searching
         void searching(string searchingCity)
         {
@@ -138,6 +144,23 @@ namespace Prj2
             Initial(jarray, GetSearchingCity());
 
             //InitializeComponent();
+        }
+
+        // get chance of rain
+        void SetChanceOfRain(JArray array, string city)
+        {            
+            for(int i = 0; i < jarray.Count; i++)
+            {
+                if(city == jarray[i]["Name"].ToString())
+                {
+                    chanceOfRain  = Convert.ToInt32(jarray[i]["Cohoicomua"].ToString().Replace("%",""));
+                }
+            } 
+        }
+
+        int GetChanceOfRain()
+        {
+            return chanceOfRain;
         }
 
        
@@ -190,6 +213,7 @@ namespace Prj2
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
 
                     SetInitCity(LocationName);
+                    SetChanceOfRain(jarray, LocationName);
 
                     break;
                 }
@@ -211,6 +235,7 @@ namespace Prj2
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
 
                     SetInitCity(LocationName);
+                    SetChanceOfRain(jarray, LocationName);
 
                     break;
                 }
@@ -232,6 +257,7 @@ namespace Prj2
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
 
                     SetInitCity(LocationName);
+                    SetChanceOfRain(jarray, LocationName);
 
                     break;
                 }
@@ -253,6 +279,7 @@ namespace Prj2
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
 
                     SetInitCity(LocationName);
+                    SetChanceOfRain(jarray, LocationName);
 
                     break;
                 }
@@ -274,6 +301,7 @@ namespace Prj2
                     this.lbTocdogio.Text = o["Tocdogio"].ToString();
 
                     SetInitCity(LocationName);
+                    SetChanceOfRain(jarray, LocationName);
 
                     break;
                 }
@@ -286,8 +314,28 @@ namespace Prj2
 
             InitializeComponent();
 
-            Initial(jarray, "Hanoi"); 
+            Initial(jarray, "Hanoi");
 
+            int maxTemp = Convert.ToInt32(getMaxTemp(jarray, "Hanoi").ToString().Replace("°C", ""));
+
+            int chanceOfRain = Convert.ToInt32(GetChanceOfRain());
+            //debug
+            Console.WriteLine("maxtemp->" + maxTemp);
+
+            if (maxTemp > 30 && chanceOfRain <= 5)
+            {
+                LoadImage(@"../../../images/sunny.png");
+            }
+
+            if(chanceOfRain > 5 && chanceOfRain <= 10 && maxTemp > 30)
+            {
+                LoadImage(@"../../../images/rainy.png");
+            }
+
+            if(chanceOfRain > 10)
+            {
+                LoadImage(@"../../../images/rainny.png");
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -316,6 +364,7 @@ namespace Prj2
                 if(searchingCity == jarray[i]["Name"].ToString())
                 {
                     count++;
+                    SetChanceOfRain(jarray, searchingCity);
                     reload();
                     break;
                 }
