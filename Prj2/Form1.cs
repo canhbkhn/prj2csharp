@@ -143,6 +143,27 @@ namespace Prj2
 
             Initial(jarray, GetSearchingCity());
 
+            int maxTemp = Convert.ToInt32(getMaxTemp(jarray, "Hanoi").ToString().Replace("°C", ""));
+
+            int chanceOfRain = Convert.ToInt32(GetChanceOfRain());
+            //debug
+            Console.WriteLine("maxtemp->" + maxTemp);
+
+            if (maxTemp > 30 && chanceOfRain <= 5)
+            {
+                LoadImage(@"../../../images/sunny.png");
+            }
+
+            if (chanceOfRain > 5 && chanceOfRain <= 10 && maxTemp > 30)
+            {
+                LoadImage(@"../../../images/rainy.png");
+            }
+
+            if (chanceOfRain > 10)
+            {
+                LoadImage(@"../../../images/rainny.png");
+            }
+
             //InitializeComponent();
         }
 
