@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.picBoxWeather = new System.Windows.Forms.PictureBox();
             this.lbTenTp = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@
             this.lbRealTemp5pm = new System.Windows.Forms.Label();
             this.lbRealTemp6pm = new System.Windows.Forms.Label();
             this.lbRealTemp7pm = new System.Windows.Forms.Label();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxWeather)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TemperatureChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -218,22 +219,22 @@
             // 
             // TemperatureChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.TemperatureChart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.TemperatureChart.Legends.Add(legend1);
+            chartArea4.Name = "ChartArea1";
+            this.TemperatureChart.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.TemperatureChart.Legends.Add(legend4);
             this.TemperatureChart.Location = new System.Drawing.Point(278, 48);
             this.TemperatureChart.Name = "TemperatureChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Temperature";
-            this.TemperatureChart.Series.Add(series1);
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Temperature";
+            this.TemperatureChart.Series.Add(series4);
             this.TemperatureChart.Size = new System.Drawing.Size(687, 394);
             this.TemperatureChart.TabIndex = 0;
             this.TemperatureChart.Text = "temp";
-            title1.Name = "Title1";
-            title1.Text = "Temperatures Chart";
-            this.TemperatureChart.Titles.Add(title1);
+            title4.Name = "Title1";
+            title4.Text = "Temperatures Chart";
+            this.TemperatureChart.Titles.Add(title4);
             // 
             // pictureBox1
             // 
@@ -447,6 +448,16 @@
             this.lbRealTemp7pm.TabIndex = 35;
             this.lbRealTemp7pm.Text = "AAAAAA";
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Location = new System.Drawing.Point(1262, 628);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(60, 41);
+            this.btnRefresh.TabIndex = 36;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -455,6 +466,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1334, 681);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.lbRealTemp7pm);
             this.Controls.Add(this.lbRealTemp6pm);
             this.Controls.Add(this.lbRealTemp5pm);
@@ -544,6 +556,7 @@
         private System.Windows.Forms.Label lbRealTemp5pm;
         private System.Windows.Forms.Label lbRealTemp6pm;
         private System.Windows.Forms.Label lbRealTemp7pm;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }
 

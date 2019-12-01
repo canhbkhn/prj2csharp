@@ -40,7 +40,18 @@ namespace Prj2
         // searching city
         private string searchingCity;
 
-        // set init city 
+        // first city when app start
+
+        private string startCity;
+        public string GetStartCity {
+            get => startCity;
+            set
+            {
+                startCity = value;
+            }
+        }
+
+       // set init city 
         public void SetInitCity(string _initCity)
         {
             initCity = _initCity;
@@ -74,6 +85,23 @@ namespace Prj2
         List<string> GetLocalTemp()
         {
             return localTemp;
+        }
+
+         // read config file
+        public void ReadConfig(string path)
+        {
+            if (!File.Exists(path))
+            {
+                MessageBox.Show("Chưa có dữ liệu");
+                return;
+            }
+
+            string fileContents = File.ReadAllText(path).ToString();
+            Console.WriteLine("content->" + fileContents);
+
+            JArray array = JArray.Parse(File.ReadAllText(path));
+
+            SetInitCity(array[0]["StartCity"].ToString());
         }
         
 
@@ -125,13 +153,13 @@ namespace Prj2
             this.picBoxWeather.Image = image;
         }
         // searching
-        void searching(string searchingCity)
+        public void searching(string searchingCity)
         {
             SetSearchingCity(searchingCity);
         }
 
         // reload form
-        void reload()
+        public void reload()
         {
             //searching(tbTimkiem.Text.ToString());
 
@@ -167,8 +195,43 @@ namespace Prj2
             //InitializeComponent();
         }
 
+        // refresh
+        public void _Refresh()
+        {
+            ReadAllData("../../../data.json");
+            ReadConfig("../../../config.json");
+
+            this.tbTimkiem.Text = string.Empty;
+
+            Initial(jarray, GetInitCity());
+
+            //debug
+            Console.WriteLine("Init city -> " + GetInitCity());
+
+            int maxTemp = Convert.ToInt32(getMaxTemp(jarray, GetInitCity()).ToString().Replace("°C", ""));
+
+            int chanceOfRain = Convert.ToInt32(GetChanceOfRain());
+            //debug
+            Console.WriteLine("maxtemp->" + maxTemp);
+
+            if (maxTemp > 30 && chanceOfRain <= 5)
+            {
+                LoadImage(@"../../../images/sunny.png");
+            }
+
+            if (chanceOfRain > 5 && chanceOfRain <= 10 && maxTemp > 30)
+            {
+                LoadImage(@"../../../images/rainy.png");
+            }
+
+            if (chanceOfRain > 10)
+            {
+                LoadImage(@"../../../images/rainny.png");
+            }
+        }
+
         // get chance of rain
-        void SetChanceOfRain(JArray array, string city)
+        public void SetChanceOfRain(JArray array, string city)
         {            
             for(int i = 0; i < jarray.Count; i++)
             {
@@ -179,7 +242,7 @@ namespace Prj2
             } 
         }
 
-        int GetChanceOfRain()
+        public int GetChanceOfRain()
         {
             return chanceOfRain;
         }
@@ -335,7 +398,9 @@ namespace Prj2
 
             InitializeComponent();
 
-            Initial(jarray, "Hanoi");
+            ReadConfig("../../../config.json");
+
+            Initial(jarray, GetInitCity());
 
             int maxTemp = Convert.ToInt32(getMaxTemp(jarray, "Hanoi").ToString().Replace("°C", ""));
 
@@ -396,6 +461,11 @@ namespace Prj2
                 MessageBox.Show("Can not found, please check again");
                 return;
             }
+        }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            _Refresh();
         }
     }
 }
